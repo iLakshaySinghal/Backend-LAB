@@ -1,0 +1,1 @@
+This file is only made for testing if error handling and reading file JS code is working or not.

@@ -1,0 +1,5 @@
+Summary:
+- The program checks if 'data.txt' exists.
+- If it exists, it reads the file in chunks using a Readable stream.
+- The contents are displayed on the console as they are read.
+- If the file is missing or an error occurs, it is handled gracefully.

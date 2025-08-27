@@ -1,0 +1,2 @@
+This is the content of the text file.
+It will be displayed in the browser.

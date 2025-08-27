@@ -1,0 +1,5 @@
+This program demonstrates stream piping in Node.js. 
+It reads data from 'input.txt' using a Readable stream and writes it into 'output.txt' using a Writable stream. 
+The pipe method connects both streams so data flows automatically. 
+Error handling ensures issues in reading or writing are reported. 
+The result is that 'output.txt' becomes a copy of 'input.txt'.
