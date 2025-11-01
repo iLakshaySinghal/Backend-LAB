@@ -1,8 +1,27 @@
 const Todo = require("../model/Todo");
 
 class TodoRepository {
+  // ✅ Get all (no pagination)
   async getAll() {
     return await Todo.find();
+  }
+
+  // ✅ Get paginated (with total count and metadata)
+  async getPaginated(page = 1, limit = 3) {
+    const skip = (page - 1) * limit;
+
+    const [todos, total] = await Promise.all([
+      Todo.find().skip(skip).limit(limit),
+      Todo.countDocuments(),
+    ]);
+
+    return {
+      total,
+      page,
+      limit,
+      totalPages: Math.ceil(total / limit),
+      todos,
+    };
   }
 
   async getById(id) {
@@ -20,12 +39,6 @@ class TodoRepository {
 
   async delete(id) {
     return await Todo.findByIdAndDelete(id);
-  }
-
-  // ✅ Pagination example: skip and limit
-  async getPaginated(page = 1, limit = 3) {
-    const skip = (page - 1) * limit;
-    return await Todo.find().skip(skip).limit(limit);
   }
 }
 

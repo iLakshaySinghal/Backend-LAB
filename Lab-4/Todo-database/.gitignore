@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build or output directories
+dist/
+build/
+out/
+
+# IDE / editor configs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Temporary files
+*.tmp
+*.bak
+
+# Optional: package lock files (if you don't want to track them)
+package-lock.json
+yarn.lock
+package.json
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Others
+*.tgz

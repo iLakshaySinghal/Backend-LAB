@@ -1,11 +1,17 @@
 const express = require("express");
 const readline = require("readline");
+const todoRoutes = require("./routes/todoRoutes");
 
 const connectDB = require("./config/db");
 const TodoRepository = require("./repository/todoRepository");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 app.use(express.json());
+
+// ✅ Attach routes after initializing app
+app.use("/api/users", userRoutes);
+app.use("/api/todos", todoRoutes);
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -38,7 +44,6 @@ async function menu() {
         all.forEach((todo) => {
           console.log(`🆔 ${todo._id} | ${todo.title} | ${todo.statusText}`);
         });
-
         menu();
         break;
 
@@ -97,7 +102,6 @@ async function menu() {
 app.listen(3000, async () => {
   console.log("🚀 Server is running on port 3000");
 
-  // Connect DB
   await connectDB();
   console.log("✅ MongoDB is connected");
 
