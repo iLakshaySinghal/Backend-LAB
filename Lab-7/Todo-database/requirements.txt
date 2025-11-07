@@ -1,0 +1,10 @@
+express
+mongoose
+dotenv
+bcryptjs
+jsonwebtoken
+cors
+jest
+supertest
+nodemon
+joi
